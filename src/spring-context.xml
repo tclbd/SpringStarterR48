@@ -1,10 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:p="http://www.springframework.org/schema/p"
-        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd"
+        default-init-method="initBean" default-destroy-method="destroyBean"
+        default-lazy-init="true"
+>
 
-    <bean class="com.spring.start.Message" id="message" ></bean>
+    <!--    <bean class="com.spring.start.Message" id="message"></bean>-->
+    <!--    <bean class="com.spring.start.Message" id="message">
+    </bean>
+    <bean class="com.spring.start.Message"></bean>
+    <bean class="com.spring.start.Message" id="message"></bean>
+    -->
+    <!--    <context:component-scan base-package="com.spring"/>-->
+
+
     
+<!--    <bean id="address1" class="com.spring.start.Address">
+        <constructor-arg value="Banani"/>
+        <constructor-arg value="Dhaka1"/>
+    </bean>
+    <bean id="e" class="com.spring.start.Employee">
+        <constructor-arg value="25" type="int"/>
+        <constructor-arg value="Mr. A"/>
+        <constructor-arg ref="address"/>
+        <constructor-arg>
+            <list>
+                <ref bean="address"/>
+                <ref bean="address1"/>
+            </list>
+        </constructor-arg>
+    </bean>
+    
+    <bean id="e1" class="com.spring.start.Employee">
+        <property name="age" value="25"/>
+        <property name="name">
+            <value>Mr. B</value>
+        </property>
+        <property name="address" ref="address"/>
+        <property name="addressList">
+            <list>
+                <ref bean="address"/>
+                <ref bean="address1"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="e2" class="com.spring.start.Employee">
+        <constructor-arg value="24" type="int"/>
+        <constructor-arg value="Mr. A"/>
+        <constructor-arg ref="address"/>
+        <constructor-arg>
+            <list>
+                <ref bean="address"/>
+                <ref bean="address1"/>
+            </list>
+        </constructor-arg>
+        
+        <property name="age" value="25"/>
+        <property name="name">
+            <value>Mr. B</value>
+        </property>
+        <property name="address" ref="address"/>
+        <property name="addressList">
+            <list>
+                <ref bean="address"/>
+                <ref bean="address1"/>
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="e3" class="com.spring.start.Employee" autowire="byType">
+    </bean>
+    -->
+    
+    <context:annotation-config/>
+
+    <bean id="address1" class="com.spring.start.Address">
+        <constructor-arg value="Dhanmondi1"/>
+        <constructor-arg value="Dhaka1"/>
+    </bean>
+<!--    <context:component-scan base-package="com.spring"/>-->
+
+
+
+
+    <bean id="e3" class="com.spring.start.Employee">
+    </bean>
+    
+    <bean id="address" class="com.spring.start.Address">
+        <constructor-arg value="Dhanmondi"/>
+        <constructor-arg value="Dhaka"/>
+    </bean>
+  
 </beans>
