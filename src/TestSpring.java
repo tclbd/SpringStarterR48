@@ -13,13 +13,13 @@ public class TestSpring {
         
         AbstractApplicationContext ctx = new ClassPathXmlApplicationContext("spring-context.xml");
         ctx.registerShutdownHook();
-        //ApplicationContext ctx = new AnnotationConfigApplicationContext(Employee.class);
+        ApplicationContext ctx1 = new AnnotationConfigApplicationContext(Employee.class);
         Employee employee = (Employee) ctx.getBean("e3");
         employee.setAge(20);
         System.out.println(employee.getAge());
        
         Address addr = (Address) ctx.getBean("address");
-        System.out.println(addr.toString());;
+        System.out.println(addr.toString());
         
         
 //        Employee e = new Employee();

@@ -4,13 +4,13 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:c="http://www.springframework.org/schema/c"
        xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
         http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd"
-        default-init-method="initBean" default-destroy-method="destroyBean"
-        default-lazy-init="true"
->
+        http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--    <bean class="com.spring.start.Message" id="message"></bean>-->
     <!--    <bean class="com.spring.start.Message" id="message">
@@ -78,24 +78,32 @@
     <bean id="e3" class="com.spring.start.Employee" autowire="byType">
     </bean>
     -->
-    
-    <context:annotation-config/>
+   
 
-    <bean id="address1" class="com.spring.start.Address">
+<!--    <bean id="address1" class="com.spring.start.Address">
         <constructor-arg value="Dhanmondi1"/>
         <constructor-arg value="Dhaka1"/>
-    </bean>
+    </bean>-->
 <!--    <context:component-scan base-package="com.spring"/>-->
 
 
 
-
-    <bean id="e3" class="com.spring.start.Employee">
+<!--
+    <bean id="e3" class="com.spring.start.Employee"
+    p:address-ref="address"
+    p:address-ref="address1"
+    
+    >
     </bean>
     
-    <bean id="address" class="com.spring.start.Address">
+    <bean id="address" class="com.spring.start.Address" parent="">
         <constructor-arg value="Dhanmondi"/>
         <constructor-arg value="Dhaka"/>
     </bean>
-  
+    <bean class="org.springframework.jdbc.core.JdbcTemplate">
+        <constructor-arg ref=""></constructor-arg>
+    </bean>-->
+    <context:annotation-config/>
+    <context:component-scan base-package="com.spring"/>
+   <aop:aspectj-autoproxy/>
 </beans>
